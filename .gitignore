@@ -7,4 +7,6 @@ __pycache__/
 # Ignore compiled Python files
 *.pyc
 
+error.html
+
 *venv
