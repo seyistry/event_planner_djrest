@@ -5,24 +5,30 @@ from .models import Event
 
 User = get_user_model()
 
+
 class EventSerializer(serializers.ModelSerializer):
     class Meta:
         model = Event
-        fields = ['id', 'title', 'description', 'date_time', 'location', 'capacity', 'organizer', 'created_date']
+        fields = ['id', 'title', 'description', 'date_time',
+                  'location', 'capacity', 'organizer', 'created_date']
         read_only_fields = ['organizer', 'created_date']
+
+    date_time = serializers.DateTimeField(format="%Y-%m-%dT%H:%M:%S%z")
 
     def create(self, validated_data):
         # Set the organizer to the current user
         validated_data['organizer'] = self.context['request'].user
         return super().create(validated_data)
 
+
 class UserSerializer(serializers.ModelSerializer):
-    password = serializers.CharField(write_only=True, required=True, validators=[validate_password])
+    password = serializers.CharField(
+        write_only=True, required=True, validators=[validate_password])
 
     class Meta:
         model = User
         fields = ['id', 'username', 'email', 'password']
-    
+
     def create(self, validated_data):
         # Create a new user and hash their password
         user = User.objects.create(
@@ -42,3 +48,9 @@ class UserSerializer(serializers.ModelSerializer):
             instance.set_password(password)
         instance.save()
         return instance
+
+
+class EventRegistrationSerializer(serializers.ModelSerializer):
+    class Meta:
+        model = Event
+        fields = []  # You can include relevant fields here if needed
