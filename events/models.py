@@ -1,9 +1,32 @@
 from django.db import models
 from django.core.exceptions import ValidationError
 from django.contrib.auth import get_user_model
-from datetime import datetime
+from django.utils import timezone
 
 User = get_user_model()
+
+
+class Category(models.Model):
+    class categoryChoice(models.TextChoices):
+        MUSIC = 'Music'
+        CONFERENCE = 'Conference'
+        WORKSHOP = 'Workshop'
+        CONCERT = 'Concert'
+        SPORTS = 'Sports'
+        ARTS = 'Arts'
+        FOOD = 'Food'
+        DRINKS = 'Drinks'
+        CHARITY = 'Charity'
+        EDUCATION = 'Education'
+        BUSINESS = 'Business'
+        TECH = 'Tech'
+        OTHER = 'Other'
+
+    name = models.CharField(
+        max_length=100, choices=categoryChoice.choices, default=categoryChoice.OTHER)
+
+    def __str__(self):
+        return self.name
 
 
 class Event(models.Model):
@@ -18,13 +41,16 @@ class Event(models.Model):
     waitlist = models.ManyToManyField(
         User, related_name='waitlisted_events', blank=True)
     created_date = models.DateTimeField(auto_now_add=True)
+    category = models.CharField(
+        max_length=100, choices=Category.categoryChoice.choices, default=Category.categoryChoice.OTHER
+    )
 
     def __str__(self):
         return self.title
 
     # Custom validation to prevent creating events with past dates
     def clean(self):
-        if self.date_time < datetime.now():
+        if self.date_time < timezone.now():
             raise ValidationError(
                 "You cannot create an event with a past date.")
 
