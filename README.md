@@ -7,7 +7,14 @@ Event Planner DJRest is a comprehensive event planning application designed to h
 - User authentication and authorization
 - Event creation and management
 - API endpoints for event data
-- Event notifications (Coming Feature)
+
+## Feature in Development
+
+- Notifications: Implement a notification system where users are alerted via email or in-app notifications when the event date is approaching.
+- Event Comments and Feedback: Add functionality for users to leave comments or feedback on past events, providing event organizers with insights.
+- Calendar Integration: Add functionality to integrate with external calendars (e.g., Google Calendar) so users can easily add event reminders to their personal calendar.
+Recurring Events: Implement support for recurring events (e.g., weekly or monthly events) with automatic generation of future occurrences.
+
 
 ## Installation
 
