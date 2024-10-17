@@ -1,6 +1,6 @@
 # Event Planner DJRest
 
-Event Planner DJRest is a comprehensive event planning application designed to help users organize and manage events efficiently. This project leverages Django and Django REST framework to provide a robust backend for handling event-related data.
+Event Planner DJRest is a comprehensive event planning application designed to help users organize and manage events efficiently. This project leverages Django and Django REST framework to provide a robust backend for handling event-related data. Deployment link [seyistry.pythonanywhere.com](https://seyistry.pythonanywhere.com)
 
 ## Features
 
@@ -13,36 +13,35 @@ Event Planner DJRest is a comprehensive event planning application designed to h
 - Notifications: Implement a notification system where users are alerted via email or in-app notifications when the event date is approaching.
 - Event Comments and Feedback: Add functionality for users to leave comments or feedback on past events, providing event organizers with insights.
 - Calendar Integration: Add functionality to integrate with external calendars (e.g., Google Calendar) so users can easily add event reminders to their personal calendar.
-Recurring Events: Implement support for recurring events (e.g., weekly or monthly events) with automatic generation of future occurrences.
-
+  Recurring Events: Implement support for recurring events (e.g., weekly or monthly events) with automatic generation of future occurrences.
 
 ## Installation
 
 1. Clone the repository:
-	```bash
-	git clone https://github.com/seyistry/event_planner_djrest.git
-	```
+   ```bash
+   git clone https://github.com/seyistry/event_planner_djrest.git
+   ```
 2. Navigate to the project directory:
-	```bash
-	cd event_planner_djrest
-	```
+   ```bash
+   cd event_planner_djrest
+   ```
 3. Create and activate a virtual environment:
-	```bash
-	python -m venv venv
-	source venv/bin/activate  # On Windows use `venv\Scripts\activate`
-	```
+   ```bash
+   python -m venv venv
+   source venv/bin/activate  # On Windows use `venv\Scripts\activate`
+   ```
 4. Install the required dependencies:
-	```bash
-	pip install -r requirements.txt
-	```
+   ```bash
+   pip install -r requirements.txt
+   ```
 5. Apply migrations:
-	```bash
-	python manage.py migrate
-	```
+   ```bash
+   python manage.py migrate
+   ```
 6. Run the development server:
-	```bash
-	python manage.py runserver
-	```
+   ```bash
+   python manage.py runserver
+   ```
 
 ## Usage
 
@@ -85,4 +84,3 @@ For any inquiries, please contact [seyistry@gmail.com](mailto:seyistry@gmail.com
 ## Author
 
 Oluwaseyi Egunjobi
-
